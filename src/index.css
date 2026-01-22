@@ -1,105 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* STEELO'S PERÚ - Premium Dark Romantic Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark Premium Base */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+    
+    /* Cards & Surfaces */
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+    --card-glass: 0 0% 8%;
+    
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Passion Red Primary */
+    --primary: 350 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 350 100% 45%;
+    
+    /* Soft Pink Secondary */
+    --secondary: 330 100% 71%;
+    --secondary-foreground: 0 0% 5%;
+    
+    /* Gold Accents */
+    --accent: 45 93% 58%;
+    --accent-foreground: 0 0% 5%;
+    
+    /* Muted */
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Borders & Inputs */
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 350 100% 50%;
+    
+    --radius: 1rem;
+    
+    /* Custom Gradient Variables */
+    --gradient-passion: linear-gradient(135deg, hsl(350, 100%, 50%) 0%, hsl(330, 100%, 71%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 3%) 0%, hsl(0, 0%, 8%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45, 93%, 58%) 0%, hsl(35, 100%, 50%) 100%);
+    --gradient-hero: radial-gradient(ellipse at 50% 0%, hsl(350, 100%, 15%) 0%, hsl(0, 0%, 3%) 70%);
+    
+    /* Glow Effects */
+    --glow-red: 0 0 60px hsla(350, 100%, 50%, 0.4);
+    --glow-pink: 0 0 40px hsla(330, 100%, 71%, 0.3);
+    --glow-gold: 0 0 30px hsla(45, 93%, 58%, 0.4);
+    
+    /* Typography */
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Inter', sans-serif;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+  }
+}
+
+@layer components {
+  /* Glass Morphism Card */
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.08) 0%, hsla(0, 0%, 100%, 0.02) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+  }
+
+  .glass-card-glow {
+    @apply glass-card;
+    box-shadow: 
+      0 0 0 1px hsla(350, 100%, 50%, 0.2),
+      0 0 40px hsla(350, 100%, 50%, 0.1),
+      inset 0 0 60px hsla(350, 100%, 50%, 0.05);
+  }
+
+  /* Passion Gradient Text */
+  .text-gradient-passion {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(350, 100%, 55%) 0%, hsl(330, 100%, 75%) 50%, hsl(350, 100%, 55%) 100%);
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(45, 93%, 60%) 0%, hsl(35, 100%, 55%) 100%);
+  }
+
+  /* Glow Text Effect */
+  .text-glow {
+    text-shadow: 
+      0 0 20px hsla(350, 100%, 50%, 0.5),
+      0 0 40px hsla(350, 100%, 50%, 0.3),
+      0 0 60px hsla(350, 100%, 50%, 0.2);
+  }
+
+  /* Button Variants */
+  .btn-passion {
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-semibold text-white transition-all duration-300;
+    background: linear-gradient(135deg, hsl(350, 100%, 50%) 0%, hsl(350, 100%, 40%) 100%);
+    box-shadow: 
+      0 4px 20px hsla(350, 100%, 50%, 0.4),
+      0 0 0 0 hsla(350, 100%, 50%, 0);
+  }
+
+  .btn-passion:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 8px 30px hsla(350, 100%, 50%, 0.5),
+      0 0 60px hsla(350, 100%, 50%, 0.3);
+  }
+
+  .btn-outline-passion {
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    color: hsl(350, 100%, 55%);
+    border: 2px solid hsl(350, 100%, 50%);
+    background: transparent;
+  }
+
+  .btn-outline-passion:hover {
+    background: hsla(350, 100%, 50%, 0.1);
+    box-shadow: 0 0 30px hsla(350, 100%, 50%, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Floating Animation Base */
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  .floating-delayed {
+    animation: floating 6s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+
+  /* Heart Pulse */
+  .heart-pulse {
+    animation: heartPulse 1.5s ease-in-out infinite;
+  }
+
+  /* Magnetic Hover Effect */
+  .magnetic-hover {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* WhatsApp Button */
+  .whatsapp-btn {
+    @apply fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full shadow-2xl transition-all duration-300;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    box-shadow: 
+      0 4px 20px rgba(37, 211, 102, 0.4),
+      0 0 0 0 rgba(37, 211, 102, 0.4);
+    animation: whatsappPulse 3s ease-in-out infinite;
+  }
+
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 
+      0 8px 30px rgba(37, 211, 102, 0.5),
+      0 0 60px rgba(37, 211, 102, 0.3);
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Keyframes */
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-20px) rotate(0.5deg);
+  }
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes whatsappPulse {
+  0%, 100% {
+    box-shadow: 
+      0 4px 20px rgba(37, 211, 102, 0.4),
+      0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 4px 20px rgba(37, 211, 102, 0.4),
+      0 0 0 15px rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px) scale(0.5);
+    opacity: 0;
   }
 }
