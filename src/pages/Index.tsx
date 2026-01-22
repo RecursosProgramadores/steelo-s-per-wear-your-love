@@ -1,7 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/sections/HeroSection";
 import CollectionsSection from "@/components/sections/CollectionsSection";
+import DesignConfigurator from "@/components/sections/DesignConfigurator";
 import WhySteelos from "@/components/sections/WhySteelos";
+import TikTokSection from "@/components/sections/TikTokSection";
 import GallerySection from "@/components/sections/GallerySection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ImpactSection from "@/components/sections/ImpactSection";
@@ -35,8 +37,14 @@ const Index = () => {
         {/* Collections Section */}
         <CollectionsSection />
 
+        {/* Design Configurator - Interactive */}
+        <DesignConfigurator />
+
         {/* Why Steelo's */}
         <WhySteelos />
+
+        {/* TikTok Videos */}
+        <TikTokSection />
 
         {/* Gallery Showcase */}
         <GallerySection />
