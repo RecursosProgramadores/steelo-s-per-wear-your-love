@@ -5,10 +5,10 @@ import { GlassCard } from "../animations/GlassCard";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "../animations/ScrollReveal";
 import { MagneticButton } from "../animations/MagneticButton";
 
-import hoodieCouple from "@/assets/hoodie-couple.jpg";
-import poleraAnime from "@/assets/polera-anime.jpg";
-import hoodieBiker from "@/assets/hoodie-biker.jpg";
-import sudaderaParejas from "@/assets/sudadera-parejas.jpg";
+import hoodieCouple from "@/assets/hoodie-couple.png";
+import poleraAnime from "@/assets/polera-anime.png";
+import hoodieBiker from "@/assets/hoodie-biker.png";
+import sudaderaParejas from "@/assets/sudadera-parejas.png";
 
 interface Collection {
   id: string;

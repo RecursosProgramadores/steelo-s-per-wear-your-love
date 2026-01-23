@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
-import { ScrollReveal } from "../animations/ScrollReveal";
-import { GlassCard } from "../animations/GlassCard";
-import { useRef, useState } from "react";
+import { Star, Quote, Sparkles } from "lucide-react";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "../animations/ScrollReveal";
 
 interface Testimonial {
   id: string;
@@ -10,127 +8,124 @@ interface Testimonial {
   location: string;
   text: string;
   rating: number;
+  initial: string;
+  color: string;
 }
 
 const testimonials: Testimonial[] = [
   {
     id: "1",
     name: "María & Carlos",
-    location: "Lima",
-    text: "¡Nuestra polera de aniversario quedó PERFECTA! El bordado es de lujo y el algodón es super suave. Mi novio lloró cuando la vio 😭❤️",
+    location: "Lima, Perú",
+    text: "Nuestra polera de aniversario quedó perfecta. El bordado es de un nivel superior y el algodón se siente increíblemente suave. Fue el regalo más especial.",
     rating: 5,
+    initial: "M",
+    color: "bg-primary",
   },
   {
     id: "2",
-    name: "Diego R.",
-    location: "Cusco",
-    text: "Como biker, busco prendas que aguanten. Esta hoodie no solo aguanta, ¡se ve brutal! Todos mis patas quieren una igual.",
+    name: "Diego Rivera",
+    location: "Cusco, Perú",
+    text: "Buscaba algo resistente para mis rutas en moto y superó mis expectativas. El diseño es brutal y la calidad de la prenda es indiscutible. ¡Recomendado!",
     rating: 5,
+    initial: "D",
+    color: "bg-secondary",
   },
   {
     id: "3",
-    name: "Valentina",
-    location: "Arequipa",
-    text: "Le regalé a mi hermana una polera anime y ahora es su prenda favorita. La atención por WhatsApp fue súper rápida y amable.",
+    name: "Valentina Paz",
+    location: "Arequipa, Perú",
+    text: "La atención por WhatsApp fue impecable y el envío a provincia muy rápido. La polera personalizada es ahora mi prenda favorita, ¡los detalles son únicos!",
     rating: 5,
-  },
-  {
-    id: "4",
-    name: "Andrea & Luis",
-    location: "Trujillo",
-    text: "Compramos el matching set para nuestro viaje. ¡Todas las fotos quedaron increíbles! El envío llegó súper rápido.",
-    rating: 5,
-  },
-  {
-    id: "5",
-    name: "Rodrigo M.",
-    location: "Huánuco",
-    text: "Orgullo huanuqueño! Conozco a los chicos de Steelo's y ver cómo crean empleo local me llena el corazón. ¡Y la calidad es top!",
-    rating: 5,
+    initial: "V",
+    color: "bg-accent text-zinc-950",
   },
 ];
 
 const TestimonialsSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-
   return (
-    <section className="relative py-24 md:py-32 bg-card/30 overflow-hidden">
-      {/* Background Lines */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+    <section id="testimonios" className="relative py-32 overflow-hidden bg-zinc-950">
+      {/* Premium Dark Background with Vignette and Grain */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900 to-zinc-950" />
+        <div className="absolute inset-10 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.6)_100%)] opacity-80" />
+        {/* Grain Texture Overlay */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <ScrollReveal className="text-center mb-12">
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">
-            Lo que dicen <span className="text-gradient-passion">nuestros clientes</span>
+        <ScrollReveal className="text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm"
+          >
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400">Testimonios Reales</span>
+          </motion.div>
+
+          <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-black mb-8 tracking-tighter text-white">
+            Lo que dicen <span className="relative inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-fuchsia-600 drop-shadow-[0_0_15px_rgba(236,72,153,0.3)]">nuestros clientes</span>
+            </span>
           </h2>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-            Miles de parejas y bikers peruanos ya viven la experiencia Steelo's
+
+          <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+            La confianza de nuestra comunidad es nuestro motor principal. Cada prenda cuenta una historia de estilo y pasión.
           </p>
         </ScrollReveal>
 
-        {/* Testimonials Carousel */}
-        <div className="relative">
-          <motion.div
-            ref={containerRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 cursor-grab active:cursor-grabbing"
-            drag="x"
-            dragConstraints={{ left: -1000, right: 0 }}
-            onDragStart={() => setIsDragging(true)}
-            onDragEnd={() => setIsDragging(false)}
-          >
-            {testimonials.map((testimonial, index) => (
+        {/* Testimonials Grid */}
+        <StaggerContainer
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          staggerDelay={0.2}
+        >
+          {testimonials.map((testimonial) => (
+            <StaggerItem key={testimonial.id}>
               <motion.div
-                key={testimonial.id}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex-shrink-0 w-[320px] md:w-[380px]"
+                whileHover={{ y: -12 }}
+                className="relative group h-full"
               >
-                <GlassCard 
-                  glowColor={index % 3 === 0 ? "red" : index % 3 === 1 ? "pink" : "gold"}
-                  className="p-6 h-full"
-                  hoverEffect={!isDragging}
-                >
-                  {/* Quote Icon */}
-                  <Quote className="w-8 h-8 text-primary/40 mb-4" />
+                {/* Dark Glassmorphism Card */}
+                <div className="relative h-full bg-zinc-900/40 backdrop-blur-3xl border border-white/5 rounded-[2.5rem] p-10 flex flex-col transition-all duration-500 group-hover:border-white/10 group-hover:bg-zinc-900/60 shadow-2xl">
 
-                  {/* Text */}
-                  <p className="text-foreground/90 mb-6 leading-relaxed">
-                    "{testimonial.text}"
-                  </p>
+                  {/* Glowing Quote Icon */}
+                  <div className="absolute top-8 right-10">
+                    <Quote className="w-12 h-12 text-primary opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.3)]" />
+                  </div>
 
                   {/* Rating */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1.5 mb-8">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                      <Star key={i} className="w-4 h-4 fill-yellow-500 text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.4)]" />
                     ))}
                   </div>
 
-                  {/* Author */}
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-passion flex items-center justify-center text-white font-bold">
-                      {testimonial.name.charAt(0)}
+                  {/* Testimonial Text */}
+                  <p className="text-zinc-300 text-lg font-medium leading-[1.8] mb-12 flex-grow italic">
+                    "{testimonial.text}"
+                  </p>
+
+                  {/* Author Info */}
+                  <div className="flex items-center gap-5 mt-auto pt-8 border-t border-white/5">
+                    <div className={`w-14 h-14 rounded-full flex items-center justify-center text-white text-xl font-bold shadow-lg ${testimonial.color} ring-4 ring-white/5 group-hover:ring-primary/20 transition-all duration-500`}>
+                      {testimonial.initial}
                     </div>
                     <div>
-                      <p className="font-semibold text-foreground">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                      <h4 className="font-heading text-lg font-black text-white tracking-tight">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-sm font-bold uppercase tracking-widest text-zinc-500">
+                        {testimonial.location}
+                      </p>
                     </div>
                   </div>
-                </GlassCard>
+                </div>
               </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Scroll Hint */}
-          <p className="text-center text-muted-foreground text-sm mt-4">
-            ← Desliza para ver más →
-          </p>
-        </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/sections/HeroSection";
+import Header from "@/components/sections/Header";
 import CollectionsSection from "@/components/sections/CollectionsSection";
-import DesignConfigurator from "@/components/sections/DesignConfigurator";
 import WhySteelos from "@/components/sections/WhySteelos";
 import TikTokSection from "@/components/sections/TikTokSection";
 import GallerySection from "@/components/sections/GallerySection";
@@ -15,13 +15,13 @@ const Index = () => {
     <>
       <Helmet>
         <title>Steelo's Perú | Poleras Personalizadas Parejas & Bikers ❤️‍🔥</title>
-        <meta 
-          name="description" 
-          content="Poleras personalizadas para parejas Perú. Regalos románticos personalizados, prendas biker custom Perú. 100% algodón premium con bordado y sublimado. Envíos a todo el Perú." 
+        <meta
+          name="description"
+          content="Poleras personalizadas para parejas Perú. Regalos románticos personalizados, prendas biker custom Perú. 100% algodón premium con bordado y sublimado. Envíos a todo el Perú."
         />
-        <meta 
-          name="keywords" 
-          content="poleras personalizadas parejas Perú, regalos románticos personalizados, prendas biker custom Perú, hoodies personalizados, sudaderas parejas, ropa anime Perú, Steelo's" 
+        <meta
+          name="keywords"
+          content="poleras personalizadas parejas Perú, regalos románticos personalizados, prendas biker custom Perú, hoodies personalizados, sudaderas parejas, ropa anime Perú, Steelo's"
         />
         <meta property="og:title" content="Steelo's Perú | Poleras Personalizadas Parejas & Bikers ❤️‍🔥" />
         <meta property="og:description" content="Más que una prenda, un recuerdo con estilo. Poleras personalizadas para parejas, bikers y momentos que duran para siempre." />
@@ -30,6 +30,7 @@ const Index = () => {
         <link rel="canonical" href="https://steelosperu.com" />
       </Helmet>
 
+      <Header />
       <main className="relative overflow-hidden">
         {/* Hero Section */}
         <HeroSection />
@@ -37,8 +38,6 @@ const Index = () => {
         {/* Collections Section */}
         <CollectionsSection />
 
-        {/* Design Configurator - Interactive */}
-        <DesignConfigurator />
 
         {/* Why Steelo's */}
         <WhySteelos />
