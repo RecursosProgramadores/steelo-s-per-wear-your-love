@@ -32,16 +32,16 @@ const WhatsAppButton = () => {
                 </div>
                 <div>
                   <h4 className="font-bold">Steelo's Perú</h4>
-                  <p className="text-xs text-white/80 italic">Normalmente responde al instante</p>
+                  <p className="text-xs text-white/80 italic">Responde al instante</p>
                 </div>
               </div>
             </div>
 
             {/* Body */}
-            <div className="p-4 bg-white/80 backdrop-blur-md flex flex-col gap-3">
+            <div className="p-4 bg-white/95 backdrop-blur-md flex flex-col gap-3">
               <button
                 onClick={() => handleWhatsApp("¡Hola! Quiero ver el catálogo de poleras.")}
-                className="w-full p-4 rounded-2xl bg-white border border-zinc-100 hover:border-primary transition-colors text-left text-sm flex items-center gap-3 group"
+                className="w-full p-4 rounded-2xl bg-white border border-zinc-100 hover:border-primary transition-colors text-left text-sm flex items-center gap-3 group text-zinc-900 font-medium"
               >
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                   <Send className="w-4 h-4" />
@@ -51,7 +51,7 @@ const WhatsAppButton = () => {
 
               <button
                 onClick={() => handleWhatsApp("¡Hola! Me gustaría cotizar un pedido para mi grupo.")}
-                className="w-full p-4 rounded-2xl bg-white border border-zinc-100 hover:border-primary transition-colors text-left text-sm flex items-center gap-3 group"
+                className="w-full p-4 rounded-2xl bg-white border border-zinc-100 hover:border-primary transition-colors text-left text-sm flex items-center gap-3 group text-zinc-900 font-medium"
               >
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                   <Phone className="w-4 h-4" />
