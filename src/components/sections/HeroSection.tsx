@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, MessageCircle, Sparkles } from "lucide-react";
+import { ChevronDown, MessageCircle, Sparkles, Zap } from "lucide-react";
 import { FloatingElement } from "../animations/FloatingElement";
 import { LetterReveal, TextReveal } from "../animations/TextReveal";
 import { MagneticButton } from "../animations/MagneticButton";
@@ -13,6 +13,10 @@ import poleraVideo from "@/assets/Polera_Flotando.mp4";
 const HeroSection = () => {
   const scrollToCollections = () => {
     document.getElementById("colecciones")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToBiker = () => {
+    document.getElementById("biker-collection")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -88,18 +92,26 @@ const HeroSection = () => {
                 <MagneticButton
                   href="https://wa.me/+51921928668?text=Hola%20Steelo's!%20Quiero%20personalizar%20mi%20prenda%20❤️"
                   target="_blank"
-                  className="btn-passion inline-flex items-center gap-3 text-lg"
+                  className="btn-passion inline-flex items-center gap-2 text-base md:text-lg px-7 py-4 shadow-[0_0_20px_rgba(255,0,0,0.2)] hover:shadow-[0_0_30px_rgba(255,0,0,0.4)]"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Personaliza por WhatsApp
+                  WhatsApp
                 </MagneticButton>
 
                 <MagneticButton
                   onClick={scrollToCollections}
-                  className="btn-outline-passion inline-flex items-center gap-3 text-lg justify-center"
+                  className="btn-outline-passion inline-flex items-center gap-2 text-base md:text-lg px-7 py-4 bg-white/5 backdrop-blur-sm border-white/20 text-white hover:border-white hover:bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-all"
                 >
-                  <Sparkles className="w-5 h-5" />
-                  Explorar Colecciones
+                  <Sparkles className="w-5 h-5 text-accent" />
+                  Colecciones
+                </MagneticButton>
+
+                <MagneticButton
+                  onClick={scrollToBiker}
+                  className="btn-outline-passion inline-flex items-center gap-2 text-base md:text-lg px-7 py-4 bg-zinc-950/20 backdrop-blur-sm border-zinc-800 text-zinc-400 hover:border-primary hover:text-white transition-all order-last sm:order-none"
+                >
+                  <Zap className="w-5 h-5 text-yellow-500" />
+                  Estilo Biker
                 </MagneticButton>
               </div>
             </TextReveal>
@@ -117,17 +129,21 @@ const HeroSection = () => {
                 {/* Glow Effect */}
                 <div className="absolute -inset-8 bg-primary/20 rounded-full blur-3xl" />
 
-                <video
-                  src={poleraVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="relative w-64 md:w-80 h-auto rounded-3xl shadow-2xl"
+                <div
+                  className="relative w-64 md:w-80 aspect-[10/14] overflow-hidden rounded-3xl shadow-2xl"
                   style={{
                     boxShadow: "0 0 60px hsla(350, 100%, 50%, 0.3)",
                   }}
-                />
+                >
+                  <video
+                    src={poleraVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover object-top scale-[1.08] origin-top"
+                  />
+                </div>
 
                 {/* Price Badge */}
                 <motion.div
@@ -163,11 +179,17 @@ const HeroSection = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 cursor-pointer opacity-60 hover:opacity-100 transition-opacity"
+            className="flex flex-col items-center gap-3 cursor-pointer group"
             onClick={scrollToCollections}
           >
-            <span className="text-sm font-medium text-muted-foreground">Descubre más</span>
-            <ChevronDown className="w-6 h-6 text-primary" />
+            <div className="flex flex-col items-center gap-1 group-hover:scale-110 transition-transform duration-300">
+              <div className="px-6 py-2 rounded-full border-2 border-white shadow-[0_0_20px_rgba(255,255,255,0.8)] bg-white/10 backdrop-blur-sm mb-2">
+                <span className="text-base md:text-lg font-black text-white uppercase tracking-[0.2em] drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+                  Descubre más
+                </span>
+              </div>
+              <ChevronDown className="w-8 h-8 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+            </div>
           </motion.div>
         </motion.div>
       </div>

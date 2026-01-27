@@ -5,11 +5,9 @@ import { ScrollReveal } from "../animations/ScrollReveal";
 import { GlassCard } from "../animations/GlassCard";
 import { MagneticButton } from "../animations/MagneticButton";
 
-import tiktokThumb1 from "@/assets/galeria.png";
-import tiktokThumb2 from "@/assets/galeria10.png";
-import tiktokThumb3 from "@/assets/galeria11.png";
-import tiktokThumb4 from "@/assets/galeria12.png";
-import tiktokThumb5 from "@/assets/galeria13.png";
+import tiktokThumb1 from "@/assets/tiktok-thumb-1.jpg";
+import tiktokThumb2 from "@/assets/tiktok-thumb-2.jpg";
+import tiktokThumb3 from "@/assets/tiktok-thumb-3.jpg";
 
 interface TikTokVideo {
   id: string;
@@ -49,51 +47,9 @@ const tiktokVideos: TikTokVideo[] = [
     category: "Clientes",
     url: "https://vt.tiktok.com/ZSakaTptW/",
   },
-  {
-    id: "4",
-    thumbnail: tiktokThumb4,
-    title: "Regalo sorpresa de aniversario 😭💕",
-    views: "156K",
-    likes: "22.3K",
-    category: "Reacciones",
-    url: "https://vt.tiktok.com/ZSakaqnYa/",
-  },
-  {
-    id: "5",
-    thumbnail: tiktokThumb5,
-    title: "De Huánuco con amor 🇵🇪 Nuestro taller",
-    views: "67K",
-    likes: "9.8K",
-    category: "Behind Scenes",
-    url: "https://vt.tiktok.com/ZSakaKcJw/",
-  },
 ];
 
 const TikTokSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleItems, setVisibleItems] = useState(3);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 1024) {
-        setVisibleItems(1);
-      } else {
-        setVisibleItems(3);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % tiktokVideos.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + tiktokVideos.length) % tiktokVideos.length);
-  };
-
   return (
     <section className="relative py-24 md:py-32 bg-zinc-950 overflow-hidden">
       {/* Background Glows */}
@@ -115,124 +71,87 @@ const TikTokSection = () => {
           </p>
         </ScrollReveal>
 
-        {/* Carousel Container */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Navigation Arrows */}
-          <div className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-20">
-            <button
-              onClick={prevSlide}
-              className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-primary/20 hover:border-primary/50 transition-all backdrop-blur-md group"
-            >
-              <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
-            </button>
-          </div>
-          <div className="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-20">
-            <button
-              onClick={nextSlide}
-              className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-primary/20 hover:border-primary/50 transition-all backdrop-blur-md group"
-            >
-              <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-
-          {/* Videos Grid/Carousel */}
-          <div className="overflow-hidden px-2">
-            <motion.div
-              className="flex gap-6"
-              animate={{
-                x: `calc(-${currentIndex * (100 / visibleItems)}% - ${currentIndex * (24 / visibleItems)}px)`,
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            >
-              {tiktokVideos.map((video, index) => (
-                <div
-                  key={video.id}
-                  className="flex-shrink-0 w-full lg:w-[calc(33.333%-16px)]"
+        {/* Static Grid Container */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {tiktokVideos.map((video, index) => (
+              <motion.div
+                key={video.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="w-full"
+              >
+                <a
+                  href={video.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group h-full"
                 >
-                  <a
-                    href={video.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block group h-full"
+                  <GlassCard
+                    className="overflow-hidden h-full flex flex-col border-white/5 bg-zinc-900/40 backdrop-blur-3xl transition-all duration-500 group-hover:border-white/20 group-hover:bg-zinc-900/60"
+                    glowColor={index % 2 === 0 ? "red" : "pink"}
                   >
-                    <GlassCard
-                      className="overflow-hidden h-full flex flex-col border-white/5 bg-zinc-900/40 backdrop-blur-3xl transition-all duration-500 group-hover:border-white/20 group-hover:bg-zinc-900/60"
-                      glowColor={index % 2 === 0 ? "red" : "pink"}
-                    >
-                      {/* Thumbnail */}
-                      <div className="relative aspect-[9/16] overflow-hidden bg-zinc-950">
-                        <img
-                          src={video.thumbnail}
-                          alt={video.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          loading="lazy"
-                        />
+                    {/* Thumbnail */}
+                    <div className="relative aspect-[9/16] overflow-hidden bg-zinc-950">
+                      <img
+                        src={video.thumbnail}
+                        alt={video.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
 
-                        {/* Badges */}
-                        <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
-                          <div className="px-3 py-1 rounded-full bg-black/50 border border-white/10 backdrop-blur-md">
-                            <span className="text-[10px] font-black uppercase tracking-widest text-white/90">{video.category}</span>
-                          </div>
-                        </div>
-
-                        {/* Play Icon Overlay */}
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                          <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
-                          >
-                            <Play className="w-8 h-8 text-white fill-white ml-1" />
-                          </motion.div>
-
-                          {/* Pulsing indicator on mobile */}
-                          <div className="lg:hidden absolute bottom-6 right-6 w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/30">
-                            <Play className="w-6 h-6 text-white fill-white ml-1" />
-                          </div>
-                        </div>
-
-                        {/* Video Stats */}
-                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/20 to-transparent">
-                          <div className="flex items-center gap-6 text-[12px] font-black tracking-widest text-white">
-                            <span className="flex items-center gap-2 drop-shadow-md">
-                              <Eye className="w-4 h-4 text-[#00f2ea]" />
-                              {video.views}
-                            </span>
-                            <span className="flex items-center gap-2 drop-shadow-md">
-                              <Heart className="w-4 h-4 text-[#ff0050] fill-[#ff0050]" />
-                              {video.likes}
-                            </span>
-                          </div>
+                      {/* Badges */}
+                      <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
+                        <div className="px-3 py-1 rounded-full bg-black/50 border border-white/10 backdrop-blur-md">
+                          <span className="text-[10px] font-black uppercase tracking-widest text-white/90">{video.category}</span>
                         </div>
                       </div>
 
-                      {/* Info Section */}
-                      <div className="p-6">
-                        <p className="text-lg font-black leading-tight text-white line-clamp-2 group-hover:text-primary transition-colors">
-                          {video.title}
-                        </p>
-                        <div className="mt-4 flex items-center gap-3 text-xs font-bold text-zinc-500">
-                          <Music className="w-3.5 h-3.5 text-zinc-600" />
-                          <span className="truncate">Sonido Original - Steelo's Perú</span>
+                      {/* Play Icon Overlay */}
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                        >
+                          <Play className="w-8 h-8 text-white fill-white ml-1" />
+                        </motion.div>
+
+                        {/* Pulsing indicator on mobile */}
+                        <div className="lg:hidden absolute bottom-6 right-6 w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/30">
+                          <Play className="w-6 h-6 text-white fill-white ml-1" />
                         </div>
                       </div>
-                    </GlassCard>
-                  </a>
-                </div>
-              ))}
-            </motion.div>
-          </div>
 
-          {/* Dots Navigation */}
-          <div className="flex justify-center gap-3 mt-12">
-            {tiktokVideos.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-                className={`h-2 rounded-full transition-all duration-500 ${i === currentIndex
-                    ? "w-10 bg-primary shadow-[0_0_15px_rgba(239,68,68,0.5)]"
-                    : "w-2 bg-white/10 hover:bg-white/30"
-                  }`}
-              />
+                      {/* Video Stats */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/20 to-transparent">
+                        <div className="flex items-center gap-6 text-[12px] font-black tracking-widest text-white">
+                          <span className="flex items-center gap-2 drop-shadow-md">
+                            <Eye className="w-4 h-4 text-[#00f2ea]" />
+                            {video.views}
+                          </span>
+                          <span className="flex items-center gap-2 drop-shadow-md">
+                            <Heart className="w-4 h-4 text-[#ff0050] fill-[#ff0050]" />
+                            {video.likes}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Info Section */}
+                    <div className="p-6">
+                      <p className="text-lg font-black leading-tight text-white line-clamp-2 group-hover:text-primary transition-colors">
+                        {video.title}
+                      </p>
+                      <div className="mt-4 flex items-center gap-3 text-xs font-bold text-zinc-500">
+                        <Music className="w-3.5 h-3.5 text-zinc-600" />
+                        <span className="truncate">Sonido Original - Steelo's Perú</span>
+                      </div>
+                    </div>
+                  </GlassCard>
+                </a>
+              </motion.div>
             ))}
           </div>
         </div>

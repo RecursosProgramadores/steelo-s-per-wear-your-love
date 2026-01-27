@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart, Truck, Palette, Users, Sparkles } from "lucide-react";
+import { Heart, ShieldCheck, Palette, Handshake, Sparkles } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "../animations/ScrollReveal";
 
 interface Benefit {
@@ -14,28 +14,28 @@ const benefits: Benefit[] = [
   {
     icon: <Heart className="w-8 h-8" />,
     title: "Calidad Sublime",
-    description: "Algodón premium seleccionado para una suavidad que acaricia tu piel.",
+    description: "Algodón afranelado premium, suave al tacto, resistente al uso diario y pensado para durar sin perder forma ni color.",
     glowColor: "rgba(239, 68, 68, 0.5)", // Red
     accentClass: "text-red-500 bg-red-500/10 border-red-500/20",
   },
   {
     icon: <Palette className="w-8 h-8" />,
     title: "Esencia Única",
-    description: "Diseños que cuentan tu historia. Personalización sin límites para tu estilo.",
+    description: "Diseños que hablan de ti. Personaliza nombres, fechas, iniciales o imágenes y convierte cada prenda en algo verdaderamente tuyo.",
     glowColor: "rgba(236, 72, 153, 0.5)", // Pink
     accentClass: "text-pink-500 bg-pink-500/10 border-pink-500/20",
   },
   {
-    icon: <Truck className="w-8 h-8" />,
-    title: "Sello de Autor",
-    description: "De nuestro taller en Huánuco a cualquier rincón del Perú con máxima rapidez.",
+    icon: <ShieldCheck className="w-8 h-8" />,
+    title: "Hecho para Resistir",
+    description: "Estampado DTF de alta calidad que no se despega, no se cuartea y no despinta, incluso después de muchas lavadas.",
     glowColor: "rgba(234, 179, 8, 0.5)", // Yellow
     accentClass: "text-yellow-500 bg-yellow-500/10 border-yellow-500/20",
   },
   {
-    icon: <Users className="w-8 h-8" />,
-    title: "Pasión Local",
-    description: "Impulsando el talento joven peruano con cada hilo y cada puntada.",
+    icon: <Handshake className="w-8 h-8" />,
+    title: "Confianza STEELO’S",
+    description: "Te mostramos tu pedido terminado antes del envío, con atención cercana y procesos claros de inicio a fin.",
     glowColor: "rgba(153, 27, 27, 0.5)", // Dark Red
     accentClass: "text-red-900 bg-red-900/10 border-red-900/20",
   },
@@ -72,7 +72,10 @@ const WhySteelos = () => {
           </h2>
 
           <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
-            No es solo ropa, es un lienzo para tu identidad. Unimos el arte del diseño personalizado con la calidez de las manos peruanas.
+            No vendemos prendas. Creamos piezas que te representan.
+            Cada diseño nace para contar tu historia,
+            con materiales de alta calidad, acabados duraderos y el
+            cuidado de manos peruanas que entienden el valor de hacerlo bien.
           </p>
         </ScrollReveal>
 

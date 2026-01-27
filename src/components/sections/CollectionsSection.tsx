@@ -4,53 +4,69 @@ import { FloatingElement } from "../animations/FloatingElement";
 import { GlassCard } from "../animations/GlassCard";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "../animations/ScrollReveal";
 import { MagneticButton } from "../animations/MagneticButton";
+import whatsappIcon from "@/assets/iconos/whatsapp.svg";
 
-import hoodieCouple from "@/assets/hoodie-couple.png";
-import poleraAnime from "@/assets/polera-anime.png";
-import hoodieBiker from "@/assets/hoodie-biker.png";
-import sudaderaParejas from "@/assets/sudadera-parejas.png";
+import hoodieCouple from "@/assets/colecciones/parejaRomantica.png";
+import poleraAnime from "@/assets/colecciones/parejaAnime.png";
+import hoodieBiker from "@/assets/colecciones/parejaBiker.png";
+import sudaderaParejas from "@/assets/colecciones/parejaFutbolera.png";
+import sudaderaKawaii from "@/assets/colecciones/parejaKawai.png";
 
 interface Collection {
   id: string;
   name: string;
   description: string;
-  price: string;
+  singlePrice: string;
+  promoPrice: string;
   image: string;
   glowColor: "red" | "pink" | "gold";
 }
 
 const collections: Collection[] = [
   {
-    id: "parejas",
-    name: "Parejas Románticas",
+    id: "romantica",
+    name: "Pareja Romántica",
     description: "Diseños que conectan corazones. Bordado con amor.",
-    price: "S/89",
+    singlePrice: "S/89",
+    promoPrice: "S/160",
     image: hoodieCouple,
     glowColor: "red",
   },
   {
     id: "anime",
-    name: "Anime & Kawaii",
+    name: "Parejas Fans del Anime",
     description: "Sublimado premium de tus personajes favoritos.",
-    price: "S/79",
+    singlePrice: "S/95",
+    promoPrice: "S/170",
     image: poleraAnime,
     glowColor: "pink",
   },
   {
+    id: "futbol",
+    name: "Parejas Fans del Fútbol",
+    description: "Lleva la pasión de tu equipo favorito a todos lados.",
+    singlePrice: "S/89",
+    promoPrice: "S/160",
+    image: sudaderaParejas,
+    glowColor: "gold",
+  },
+  {
     id: "bikers",
-    name: "Biker Edition",
+    name: "Parejas Fans del Motociclismo",
     description: "Para los que viven la libertad sobre dos ruedas.",
-    price: "S/99",
+    singlePrice: "S/95",
+    promoPrice: "S/170",
     image: hoodieBiker,
     glowColor: "gold",
   },
   {
-    id: "matching",
-    name: "Matching Sets",
-    description: "Conjuntos para parejas que quieren combinar estilo.",
-    price: "S/169",
-    image: sudaderaParejas,
-    glowColor: "red",
+    id: "kawai",
+    name: "Parejas Kawai",
+    description: "Estilo tierno y moderno para compartir momentos.",
+    singlePrice: "S/89",
+    promoPrice: "S/160",
+    image: sudaderaKawaii,
+    glowColor: "pink",
   },
 ];
 
@@ -72,75 +88,107 @@ const CollectionsSection = () => {
           </p>
         </ScrollReveal>
 
-        {/* Collections Grid */}
-        <StaggerContainer 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-          staggerDelay={0.15}
-        >
+        {/* Collections Grid - Adjusted for 5 items */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {collections.map((collection, index) => (
-            <StaggerItem key={collection.id}>
+            <ScrollReveal
+              key={collection.id}
+              delay={index * 0.1}
+              className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-2rem)] xl:w-[calc(20%-2rem)] min-w-[280px]"
+            >
               <FloatingElement intensity={10} delay={index * 0.5}>
-                <GlassCard 
+                <GlassCard
                   glowColor={collection.glowColor}
                   className="group cursor-pointer h-full"
                 >
                   {/* Image Container */}
-                  <div className="relative overflow-hidden rounded-t-2xl">
+                  <div className="relative overflow-hidden rounded-t-2xl bg-zinc-900/40 p-6">
                     <motion.img
                       src={collection.image}
                       alt={collection.name}
-                      className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-72 object-contain transition-transform duration-500 group-hover:scale-110"
                     />
-                    
-                    {/* Hover Overlay */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      whileHover={{ opacity: 1 }}
-                      className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    >
-                      <MagneticButton
-                        href="https://wa.me/+51921928668?text=Hola!%20Me%20interesa%20la%20colección%20de%20"
-                        target="_blank"
-                        className="btn-passion text-sm px-6 py-3 flex items-center gap-2"
-                      >
-                        Personalizar
-                        <ExternalLink className="w-4 h-4" />
-                      </MagneticButton>
-                    </motion.div>
 
-                    {/* Price Badge */}
-                    <div className="absolute top-4 right-4 glass-card px-3 py-1.5 rounded-full">
-                      <span className="text-sm font-bold text-gradient-gold">
-                        Desde {collection.price}
+
+
+                    {/* Price Badge - Unit */}
+                    <div className="absolute top-4 right-4 glass-card px-3 py-1.5 rounded-full z-20">
+                      <span className="text-xs font-bold text-white">
+                        1 x {collection.singlePrice}
                       </span>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-5">
-                    <h3 className="font-heading text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                  <div className="p-6 flex flex-col h-full">
+                    <h3 className="font-heading text-lg font-black mb-2 group-hover:text-primary transition-colors tracking-tight leading-tight">
                       {collection.name}
                     </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {collection.description}
-                    </p>
+                    <div className="flex items-start justify-between gap-4 mb-6 flex-grow">
+                      <p className="text-zinc-500 text-xs line-clamp-2">
+                        {collection.description}
+                      </p>
+                      <a
+                        href={`https://wa.me/+51940257279?text=Hola!%20Me%20interesa%20la%20colección%20de%20${encodeURIComponent(collection.name)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-shrink-0 w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-[#25D366]/20 group/wa"
+                        title="Pedir por WhatsApp"
+                      >
+                        <img src={whatsappIcon} alt="WhatsApp" className="w-6 h-6 invert contrast-200" />
+                      </a>
+                    </div>
+
+                    {/* Promotion Price - Highlighted */}
+                    <div className="mt-auto pt-6 border-t border-white/5 relative">
+                      <div className="absolute -top-px left-0 w-1/2 h-px bg-gradient-to-r from-primary to-transparent opacity-50" />
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex flex-col">
+                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 mb-1">Promoción</span>
+                          <span className="text-[9px] font-bold text-zinc-600">Llevando x2</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-gradient-gold font-black text-2xl drop-shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+                            2 x {collection.promoPrice}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </GlassCard>
               </FloatingElement>
-            </StaggerItem>
+            </ScrollReveal>
           ))}
-        </StaggerContainer>
+        </div>
 
         {/* CTA */}
         <ScrollReveal delay={0.5} className="text-center mt-12">
-          <MagneticButton
-            href="https://wa.me/+51921928668?text=Hola!%20Quiero%20ver%20todas%20las%20colecciones%20disponibles"
-            target="_blank"
-            className="btn-outline-passion inline-flex items-center gap-3"
+          <motion.div
+            animate={{
+              boxShadow: [
+                "0 0 0px rgba(236, 72, 153, 0)",
+                "0 0 25px rgba(236, 72, 153, 0.5)",
+                "0 0 0px rgba(236, 72, 153, 0)"
+              ]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="inline-block rounded-full shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-shadow duration-300"
           >
-            Ver Todas las Colecciones
-            <ExternalLink className="w-5 h-5" />
-          </MagneticButton>
+            <MagneticButton
+              href="https://wa.me/+51940257279?text=Hola!%20Quiero%20ver%20todas%20las%20colecciones%20disponibles"
+              target="_blank"
+              className="btn-outline-passion inline-flex items-center gap-3 bg-zinc-950/50 backdrop-blur-sm relative overflow-hidden group"
+            >
+              {/* Inner glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              Ver Todas las Colecciones
+              <ExternalLink className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            </MagneticButton>
+          </motion.div>
         </ScrollReveal>
       </div>
     </section>

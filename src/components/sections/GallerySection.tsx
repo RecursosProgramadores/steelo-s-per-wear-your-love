@@ -4,20 +4,35 @@ import { Heart, Sparkles, ShoppingBag, X, Maximize2, ChevronLeft, ChevronRight }
 import { ScrollReveal, StaggerContainer, StaggerItem } from "../animations/ScrollReveal";
 import { LetterReveal } from "../animations/TextReveal";
 
-import galeria1 from "@/assets/galeria.png";
-import galeria2 from "@/assets/galeria2.png";
-import galeria3 from "@/assets/galeria3.png";
-import galeria4 from "@/assets/galeria4.png";
-import galeria5 from "@/assets/galeria5.png";
-import galeria6 from "@/assets/galeria6.png";
-import galeria7 from "@/assets/galeria7.png";
-import galeria8 from "@/assets/galeria8.png";
-import galeria9 from "@/assets/galeria9.png";
-import galeria10 from "@/assets/galeria10.png";
-import galeria11 from "@/assets/galeria11.png";
-import galeria12 from "@/assets/galeria12.png";
-import galeria13 from "@/assets/galeria13.png";
-import galeria14 from "@/assets/galeria14.png";
+// Romántico
+import romantico1 from "@/assets/galeria/romantico/romantico1.png";
+import romantico2 from "@/assets/galeria/romantico/romantico2.png";
+import romantico3 from "@/assets/galeria/romantico/romantico3.png";
+import romantico4 from "@/assets/galeria/romantico/romantico4.png";
+
+// Anime
+import anime1 from "@/assets/galeria/anime/anime1.png";
+import anime2 from "@/assets/galeria/anime/anime2.png";
+import anime3 from "@/assets/galeria/anime/anime3.png";
+import anime4 from "@/assets/galeria/anime/anime4.png";
+
+// Fútbol
+import futbol1 from "@/assets/galeria/futbol/futbol1.png";
+import futbol2 from "@/assets/galeria/futbol/futbol2.png";
+import futbol3 from "@/assets/galeria/futbol/futbol3.png";
+import futbol4 from "@/assets/galeria/futbol/futbol4.png";
+
+// Motociclismo
+import biker1 from "@/assets/galeria/biker/biker1.png";
+import biker2 from "@/assets/galeria/biker/biker2.png";
+import biker3 from "@/assets/galeria/biker/biker3.png";
+import biker4 from "@/assets/galeria/biker/biker4.png";
+
+// Kawai
+import kawai1 from "@/assets/galeria/kawai/biker1.png";
+import kawai2 from "@/assets/galeria/kawai/biker2.png";
+import kawai3 from "@/assets/galeria/kawai/biker3.png";
+import kawai4 from "@/assets/galeria/kawai/biker4.png";
 
 interface GalleryItem {
   id: string;
@@ -29,40 +44,66 @@ interface GalleryItem {
 }
 
 const galleryItems: GalleryItem[] = [
-  { id: "1", src: galeria1, alt: "Polera Steelo's", category: "Premium", span: "normal", color: "from-rose-500/10 to-transparent" },
-  { id: "2", src: galeria2, alt: "Diseño Exclusivo", category: "Personalizado", span: "normal", color: "from-blue-500/10 to-transparent" },
-  { id: "3", src: galeria3, alt: "Detalle Bordado", category: "Bordado", span: "normal", color: "from-amber-500/10 to-transparent" },
-  { id: "4", src: galeria4, alt: "Estilo Urbano", category: "Premium", span: "normal", color: "from-purple-500/10 to-transparent" },
-  { id: "5", src: galeria5, alt: "Colección Love", category: "Parejas", span: "normal", color: "from-pink-500/10 to-transparent" },
-  { id: "6", src: galeria6, alt: "Arte en Textil", category: "Personalizado", span: "normal", color: "from-emerald-500/10 to-transparent" },
-  { id: "7", src: galeria7, alt: "Hoodie Biker", category: "Bikers", span: "normal", color: "from-zinc-500/10 to-transparent" },
-  { id: "8", src: galeria8, alt: "Polera Anime", category: "Anime", span: "normal", color: "from-indigo-500/10 to-transparent" },
-  { id: "9", src: galeria9, alt: "Calidad Premium", category: "Premium", span: "normal", color: "from-orange-500/10 to-transparent" },
-  { id: "10", src: galeria10, alt: "Streetwear", category: "Estilo", span: "normal", color: "from-cyan-500/10 to-transparent" },
-  { id: "11", src: galeria11, alt: "Pareja Matching", category: "Parejas", span: "normal", color: "from-red-500/10 to-transparent" },
-  { id: "12", src: galeria12, alt: "Hoodie Oversize", category: "Colección", span: "normal", color: "from-violet-500/10 to-transparent" },
-  { id: "13", src: galeria13, alt: "Diseño Único", category: "Personalizado", span: "normal", color: "from-teal-500/10 to-transparent" },
-  { id: "14", src: galeria14, alt: "Steelo's Style", category: "Premium", span: "normal", color: "from-fuchsia-500/10 to-transparent" },
+  // Romántico
+  { id: "r1", src: romantico1, alt: "Diseño Romántico 1", category: "Pareja Romántica", span: "normal", color: "from-rose-500/10 to-transparent" },
+  { id: "r2", src: romantico2, alt: "Diseño Romántico 2", category: "Pareja Romántica", span: "normal", color: "from-rose-500/10 to-transparent" },
+  { id: "r3", src: romantico3, alt: "Diseño Romántico 3", category: "Pareja Romántica", span: "normal", color: "from-rose-500/10 to-transparent" },
+  { id: "r4", src: romantico4, alt: "Diseño Romántico 4", category: "Pareja Romántica", span: "normal", color: "from-rose-500/10 to-transparent" },
+
+  // Anime
+  { id: "a1", src: anime1, alt: "Diseño Anime 1", category: "Parejas Fans del Anime", span: "normal", color: "from-blue-500/10 to-transparent" },
+  { id: "a2", src: anime2, alt: "Diseño Anime 2", category: "Parejas Fans del Anime", span: "normal", color: "from-blue-500/10 to-transparent" },
+  { id: "a3", src: anime3, alt: "Diseño Anime 3", category: "Parejas Fans del Anime", span: "normal", color: "from-blue-500/10 to-transparent" },
+  { id: "a4", src: anime4, alt: "Diseño Anime 4", category: "Parejas Fans del Anime", span: "normal", color: "from-blue-500/10 to-transparent" },
+
+  // Fútbol
+  { id: "f1", src: futbol1, alt: "Diseño Fútbol 1", category: "Parejas Fans del Fútbol", span: "normal", color: "from-emerald-500/10 to-transparent" },
+  { id: "f2", src: futbol2, alt: "Diseño Fútbol 2", category: "Parejas Fans del Fútbol", span: "normal", color: "from-emerald-500/10 to-transparent" },
+  { id: "f3", src: futbol3, alt: "Diseño Fútbol 3", category: "Parejas Fans del Fútbol", span: "normal", color: "from-emerald-500/10 to-transparent" },
+  { id: "f4", src: futbol4, alt: "Diseño Fútbol 4", category: "Parejas Fans del Fútbol", span: "normal", color: "from-emerald-500/10 to-transparent" },
+
+  // Motociclismo
+  { id: "m1", src: biker1, alt: "Diseño Biker 1", category: "Parejas Fans del Motociclismo", span: "normal", color: "from-zinc-500/10 to-transparent" },
+  { id: "m2", src: biker2, alt: "Diseño Biker 2", category: "Parejas Fans del Motociclismo", span: "normal", color: "from-zinc-500/10 to-transparent" },
+  { id: "m3", src: biker3, alt: "Diseño Biker 3", category: "Parejas Fans del Motociclismo", span: "normal", color: "from-zinc-500/10 to-transparent" },
+  { id: "m4", src: biker4, alt: "Diseño Biker 4", category: "Parejas Fans del Motociclismo", span: "normal", color: "from-zinc-500/10 to-transparent" },
+
+  // Kawai
+  { id: "k1", src: kawai1, alt: "Diseño Kawai 1", category: "Parejas Kawai", span: "normal", color: "from-pink-500/10 to-transparent" },
+  { id: "k2", src: kawai2, alt: "Diseño Kawai 2", category: "Parejas Kawai", span: "normal", color: "from-pink-500/10 to-transparent" },
+  { id: "k3", src: kawai3, alt: "Diseño Kawai 3", category: "Parejas Kawai", span: "normal", color: "from-pink-500/10 to-transparent" },
+  { id: "k4", src: kawai4, alt: "Diseño Kawai 4", category: "Parejas Kawai", span: "normal", color: "from-pink-500/10 to-transparent" },
+];
+
+const CATEGORIES = [
+  "Pareja Romántica",
+  "Parejas Fans del Anime",
+  "Parejas Fans del Fútbol",
+  "Parejas Fans del Motociclismo",
+  "Parejas Kawai",
 ];
 
 const GallerySection = () => {
+  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]); // Default to Romántica
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+
+  const filteredItems = galleryItems.filter(item => item.category === activeCategory);
 
   const handleNext = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (!selectedImage) return;
-    const currentIndex = galleryItems.findIndex(item => item.id === selectedImage.id);
-    const nextIndex = (currentIndex + 1) % galleryItems.length;
-    setSelectedImage(galleryItems[nextIndex]);
-  }, [selectedImage]);
+    const currentIndex = filteredItems.findIndex(item => item.id === selectedImage.id);
+    const nextIndex = (currentIndex + 1) % filteredItems.length;
+    setSelectedImage(filteredItems[nextIndex]);
+  }, [selectedImage, filteredItems]);
 
   const handlePrev = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (!selectedImage) return;
-    const currentIndex = galleryItems.findIndex(item => item.id === selectedImage.id);
-    const prevIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    setSelectedImage(galleryItems[prevIndex]);
-  }, [selectedImage]);
+    const currentIndex = filteredItems.findIndex(item => item.id === selectedImage.id);
+    const prevIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
+    setSelectedImage(filteredItems[prevIndex]);
+  }, [selectedImage, filteredItems]);
 
   // Keyboard Navigation
   useEffect(() => {
@@ -104,21 +145,40 @@ const GallerySection = () => {
           </h2>
 
           <ScrollReveal delay={0.4}>
-            <p className="text-zinc-500 text-lg md:text-2xl max-w-3xl mx-auto font-serif italic leading-relaxed">
+            <p className="text-zinc-500 text-lg md:text-2xl max-w-3xl mx-auto font-serif italic leading-relaxed mb-12">
               &ldquo;Donde la creatividad se encuentra con el hilo premium.&rdquo;
             </p>
           </ScrollReveal>
+
+          {/* Category Selector */}
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16">
+            {CATEGORIES.map((category) => (
+              <motion.button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-6 py-3 rounded-full text-xs font-black transition-all duration-300 border shadow-sm uppercase tracking-widest ${activeCategory === category
+                  ? "bg-primary text-white border-primary shadow-primary/20"
+                  : "bg-white text-zinc-500 border-zinc-200 hover:border-primary hover:text-primary"
+                  }`}
+              >
+                {category}
+              </motion.button>
+            ))}
+          </div>
         </div>
 
         {/* Masonry Grid (Now Uniform) */}
         <StaggerContainer
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px]"
+          key={activeCategory} // Reset animations when category changes
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 auto-rows-[280px] md:auto-rows-[380px]"
           staggerDelay={0.05}
         >
-          {galleryItems.map((item) => (
+          {filteredItems.map((item) => (
             <StaggerItem
               key={item.id}
-              className="group relative"
+              className="group relative h-full"
             >
               <motion.div
                 className="h-full w-full rounded-3xl overflow-hidden bg-zinc-50 border border-zinc-100 relative shadow-sm group-hover:shadow-xl transition-all duration-500 cursor-pointer"
@@ -130,7 +190,7 @@ const GallerySection = () => {
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]" />
 
                 {/* Image Container */}
-                <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8">
+                <div className="absolute inset-0 flex items-center justify-center p-4 md:p-6">
                   <motion.img
                     src={item.src}
                     alt={item.alt}
@@ -139,26 +199,15 @@ const GallerySection = () => {
                   />
                 </div>
 
-                {/* Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <p className="text-white text-xs font-bold uppercase tracking-wider mb-1 opacity-70">
-                      {item.category}
-                    </p>
-                    <h3 className="text-white font-heading text-lg font-bold">
-                      {item.alt}
-                    </h3>
-                  </div>
-                </div>
+                {/* Overlay - Simplified for pure visual focus */}
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 {/* Action Badges */}
                 <div className="absolute top-4 right-4 flex flex-col gap-2">
                   <div className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-md shadow-lg flex items-center justify-center text-primary border border-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                     <Maximize2 className="w-5 h-5" />
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-md shadow-lg flex items-center justify-center text-primary border border-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 delay-75">
-                    <Heart className="w-5 h-5 fill-primary" />
-                  </div>
+
                 </div>
 
                 {/* Quick Info Badge */}
@@ -184,7 +233,8 @@ const GallerySection = () => {
               className="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 md:p-8"
               onClick={() => setSelectedImage(null)}
             >
-              <div className="absolute inset-0 flex items-center justify-between px-4 md:px-12 pointer-events-none">
+              {/* Desktop Side Navigation - Hidden on Mobile */}
+              <div className="absolute inset-0 hidden md:flex items-center justify-between px-12 pointer-events-none">
                 <motion.button
                   className="pointer-events-auto p-4 rounded-full bg-white/10 text-white hover:bg-primary transition-all border border-white/10 backdrop-blur-md"
                   whileHover={{ scale: 1.1, x: -5 }}
@@ -228,15 +278,25 @@ const GallerySection = () => {
                   className="max-w-full max-h-[65vh] md:max-h-[75vh] object-contain drop-shadow-[0_0_40px_rgba(255,255,255,0.05)] rounded-3xl"
                 />
 
-                <div className="mt-8 text-center bg-zinc-900/40 backdrop-blur-xl p-6 md:p-6 rounded-[2.5rem] border border-white/5 w-full shadow-2xl md:hidden">
-                  <span className="px-4 py-1.5 rounded-full bg-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] border border-primary/30">
-                    {selectedImage.category}
-                  </span>
-                  <h3 className="text-white font-heading text-2xl md:text-3xl font-black mt-4 tracking-tighter">
-                    {selectedImage.alt}
-                  </h3>
-                  <p className="text-zinc-500 mt-2 font-medium">Original Steelo's Perú • Calidad Premium</p>
+                {/* Mobile Bottom Navigation - Visible only on Mobile */}
+                <div className="flex md:hidden items-center justify-center gap-8 mt-8">
+                  <motion.button
+                    className="p-5 rounded-full bg-white text-zinc-950 shadow-xl"
+                    whileTap={{ scale: 0.8 }}
+                    onClick={handlePrev}
+                  >
+                    <ChevronLeft className="w-8 h-8" />
+                  </motion.button>
+                  <motion.button
+                    className="p-5 rounded-full bg-white text-zinc-950 shadow-xl"
+                    whileTap={{ scale: 0.8 }}
+                    onClick={handleNext}
+                  >
+                    <ChevronRight className="w-8 h-8" />
+                  </motion.button>
                 </div>
+
+
               </motion.div>
             </motion.div>
           )}
@@ -253,18 +313,18 @@ const GallerySection = () => {
                   </div>
                 ))}
                 <div className="w-10 h-10 rounded-full border-2 border-white bg-primary text-white flex items-center justify-center text-[10px] font-bold">
-                  +500
+                  +2000
                 </div>
               </div>
               <p className="text-sm font-medium text-zinc-600">
-                Más de <span className="font-bold text-zinc-900 font-serif italic text-lg">500 clientes satisfechos</span> confían en nuestra calidad.
+                Más de <span className="font-bold text-zinc-900 font-serif italic text-lg">2000 clientes satisfechos</span> confían en nuestra calidad.
               </p>
               <a
-                href="https://instagram.com/con_steelos"
+                href="https://www.facebook.com/share/1a3dBcqp4g/"
                 target="_blank"
                 className="btn-passion py-2 px-6 text-sm flex items-center gap-2"
               >
-                Ver más en Instagram
+                Ver más en facebook
               </a>
             </div>
           </div>

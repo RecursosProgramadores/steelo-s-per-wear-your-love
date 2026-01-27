@@ -9,6 +9,8 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ImpactSection from "@/components/sections/ImpactSection";
 import Footer from "@/components/sections/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import BikerHeroSection from "@/components/sections/BikerHeroSection";
+import BikerGallerySection from "@/components/sections/BikerGallerySection";
 
 const Index = () => {
   return (
@@ -47,6 +49,12 @@ const Index = () => {
 
         {/* Gallery Showcase */}
         <GallerySection />
+
+        {/* Biker Special Collection Section */}
+        <BikerHeroSection />
+
+        {/* Biker Brands Gallery */}
+        <BikerGallerySection />
 
         {/* Testimonials */}
         <TestimonialsSection />
