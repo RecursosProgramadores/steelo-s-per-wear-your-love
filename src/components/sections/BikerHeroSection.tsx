@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Sparkles, Shield, Zap } from "lucide-react";
+import { Sparkles, Shield, Zap } from "lucide-react";
 import { FloatingElement } from "../animations/FloatingElement";
 import { LetterReveal, TextReveal } from "../animations/TextReveal";
 import { MagneticButton } from "../animations/MagneticButton";
@@ -9,6 +9,7 @@ import { TypewriterText } from "../animations/TypewriterText";
 
 import bikerBg from "@/assets/galeria/biker/biker1.png";
 import bikerVideo from "@/assets/biker.mp4";
+import whatsappIcon from "@/assets/iconos/whatsapp.svg";
 
 const BikerHeroSection = () => {
     return (
@@ -78,9 +79,9 @@ const BikerHeroSection = () => {
                             <MagneticButton
                                 href="https://wa.me/+51921928668?text=Hola%20Steelo's!%20Quiero%20ver%20el%20catálogo%20Biker%20🏍️"
                                 target="_blank"
-                                className="btn-passion inline-flex items-center gap-2 px-8 py-4 shadow-[0_0_20px_rgba(244,63,94,0.3)]"
+                                className="btn-passion inline-flex items-center gap-2 text-sm md:text-lg px-6 md:px-8 py-3 md:py-4 shadow-[0_0_20px_rgba(244,63,94,0.3)]"
                             >
-                                <MessageCircle className="w-5 h-5" />
+                                <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4 md:w-5 md:h-5 invert contrast-200" />
                                 Pedir Catálogo Biker
                             </MagneticButton>
 

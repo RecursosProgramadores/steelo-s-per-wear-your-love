@@ -7,6 +7,9 @@ import tiktokIcon from "@/assets/iconos/tiktok.svg";
 import instagramIcon from "@/assets/iconos/instagram.svg";
 import facebookIcon from "@/assets/iconos/facebook.svg";
 import whatsappIcon from "@/assets/iconos/whatsapp.svg";
+import flyLogo from "@/assets/logo.svg";
+import libroReclamacionesImg from "@/assets/libroreclamaciones.jpeg";
+import { Link } from "react-router-dom";
 
 const socials = [
   {
@@ -24,7 +27,7 @@ const socials = [
   {
     name: "Facebook",
     icon: <img src={facebookIcon} className="w-5 h-5 invert" alt="Facebook" />,
-    url: "https://facebook.com/steelostiendaderopa",
+    url: "https://www.facebook.com/share/17o461EtUb/",
     handle: "Steelos - Tienda de Ropa",
   },
 ];
@@ -65,7 +68,7 @@ const Footer = () => {
               Expertos en crear recuerdos con estilo. Poleras personalizadas premium para parejas, bikers y coleccionistas en todo el Perú.
             </p>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-8">
               {socials.map((social) => (
                 <MagneticButton
                   key={social.name}
@@ -76,6 +79,21 @@ const Footer = () => {
                   {social.icon}
                 </MagneticButton>
               ))}
+            </div>
+
+            <div className="mt-2 text-left">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd__Q-_V4guEBa652EbEDuPK2IIlc0bwBL3RLEUOQ7M8jZdag/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block group"
+              >
+                <img
+                  src={libroReclamacionesImg}
+                  alt="Libro de Reclamaciones"
+                  className="h-16 w-auto object-contain rounded-xl transition-transform duration-300 group-hover:scale-105 shadow-lg shadow-black/20"
+                />
+              </a>
             </div>
           </ScrollReveal>
 
@@ -156,18 +174,29 @@ const Footer = () => {
           </ScrollReveal>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/5 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-zinc-600">
-            <p>© {currentYear} Steelo's Perú. Hecho con ❤️‍🔥 por jóvenes peruanos.</p>
-            <p className="flex items-center gap-2">
-              <motion.span
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+        <div className="border-t border-white/5 pt-12 mt-12">
+          <div className="flex flex-col items-center gap-10 text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
+            {/* Top Row: Copyright and Legal Links */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-center">
+              <p>© {currentYear} Steelo's Perú. Hecho con ❤️‍🔥 por jóvenes peruanos.</p>
+              <div className="flex gap-8">
+                <Link to="/terminos" className="hover:text-white transition-colors">Términos y condiciones</Link>
+                <Link to="/privacidad" className="hover:text-white transition-colors">Política de privacidad</Link>
+              </div>
+            </div>
+
+            {/* Bottom Row: Developer Attribution */}
+            <div className="flex items-center justify-center gap-4 py-2">
+              <span className="text-zinc-500 lowercase tracking-normal font-bold text-base">Desarrollado por</span>
+              <a
+                href="https://fly-software.lovable.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center transition-all hover:scale-105"
               >
-                🇵🇪
-              </motion.span>
-            </p>
+                <img src={flyLogo} alt="Fly Software" className="h-10 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

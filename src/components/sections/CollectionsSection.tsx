@@ -88,68 +88,66 @@ const CollectionsSection = () => {
           </p>
         </ScrollReveal>
 
-        {/* Collections Grid - Adjusted for 5 items */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+        {/* Collections Static Grid - 5 Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
           {collections.map((collection, index) => (
             <ScrollReveal
               key={collection.id}
               delay={index * 0.1}
-              className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-2rem)] xl:w-[calc(20%-2rem)] min-w-[280px]"
+              className="w-full"
             >
-              <FloatingElement intensity={10} delay={index * 0.5}>
+              <FloatingElement intensity={5} delay={index * 0.5}>
                 <GlassCard
                   glowColor={collection.glowColor}
-                  className="group cursor-pointer h-full"
+                  className="group cursor-pointer h-full flex flex-col"
                 >
                   {/* Image Container */}
-                  <div className="relative overflow-hidden rounded-t-2xl bg-zinc-900/40 p-6">
+                  <div className="relative overflow-hidden rounded-t-2xl bg-zinc-900/40 p-4">
                     <motion.img
                       src={collection.image}
                       alt={collection.name}
-                      className="w-full h-72 object-contain transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-48 md:h-56 object-contain transition-transform duration-500 group-hover:scale-110"
                     />
 
-
-
                     {/* Price Badge - Unit */}
-                    <div className="absolute top-4 right-4 glass-card px-3 py-1.5 rounded-full z-20">
-                      <span className="text-xs font-bold text-white">
+                    <div className="absolute top-3 right-3 glass-card px-3 py-1.5 rounded-full z-20 border border-white/10 shadow-xl">
+                      <span className="text-xs font-black text-white tracking-tight">
                         1 x {collection.singlePrice}
                       </span>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 flex flex-col h-full">
-                    <h3 className="font-heading text-lg font-black mb-2 group-hover:text-primary transition-colors tracking-tight leading-tight">
+                  <div className="p-4 flex flex-col flex-grow">
+                    <h3 className="font-heading text-base font-black mb-1.5 group-hover:text-primary transition-colors tracking-tight leading-tight">
                       {collection.name}
                     </h3>
-                    <div className="flex items-start justify-between gap-4 mb-6 flex-grow">
-                      <p className="text-zinc-500 text-xs line-clamp-2">
+                    <div className="flex items-start justify-between gap-2 mb-4">
+                      <p className="text-zinc-500 text-[10px] line-clamp-2 leading-relaxed">
                         {collection.description}
                       </p>
                       <a
                         href={`https://wa.me/+51940257279?text=Hola!%20Me%20interesa%20la%20colección%20de%20${encodeURIComponent(collection.name)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-shrink-0 w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-[#25D366]/20 group/wa"
+                        className="flex-shrink-0 w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-[#25D366]/20 group/wa"
                         title="Pedir por WhatsApp"
                       >
-                        <img src={whatsappIcon} alt="WhatsApp" className="w-6 h-6 invert contrast-200" />
+                        <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 invert contrast-200" />
                       </a>
                     </div>
 
                     {/* Promotion Price - Highlighted */}
-                    <div className="mt-auto pt-6 border-t border-white/5 relative">
+                    <div className="mt-auto pt-4 border-t border-white/5 relative">
                       <div className="absolute -top-px left-0 w-1/2 h-px bg-gradient-to-r from-primary to-transparent opacity-50" />
-                      <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center justify-between gap-1">
                         <div className="flex flex-col">
-                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 mb-1">Promoción</span>
-                          <span className="text-[9px] font-bold text-zinc-600">Llevando x2</span>
+                          <span className="text-[8px] font-black uppercase tracking-[0.1em] text-zinc-500">Promoción</span>
+                          <span className="text-[8px] font-bold text-zinc-600">Llevando x2</span>
                         </div>
                         <div className="text-right">
-                          <span className="text-gradient-gold font-black text-2xl drop-shadow-[0_0_10px_rgba(234,179,8,0.2)]">
-                            2 x {collection.promoPrice}
+                          <span className="text-gradient-gold font-black text-lg drop-shadow-[0_0_8px_rgba(234,179,8,0.2)]">
+                            {collection.promoPrice}
                           </span>
                         </div>
                       </div>

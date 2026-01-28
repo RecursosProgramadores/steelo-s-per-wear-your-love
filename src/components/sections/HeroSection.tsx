@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, MessageCircle, Sparkles, Zap } from "lucide-react";
+import { ChevronDown, Sparkles, Zap } from "lucide-react";
 import { FloatingElement } from "../animations/FloatingElement";
 import { LetterReveal, TextReveal } from "../animations/TextReveal";
 import { MagneticButton } from "../animations/MagneticButton";
@@ -8,7 +8,9 @@ import { AnimatedGradient } from "../animations/AnimatedGradient";
 import { TypewriterText } from "../animations/TypewriterText";
 
 import heroImage from "@/assets/hero-couple.jpg";
-import poleraVideo from "@/assets/Polera_Flotando.mp4";
+import poleraMujerVideo from "@/assets/Polera_Flotando.mp4";
+import poleraVaronVideo from "@/assets/parejavaron.mp4";
+import whatsappIcon from "@/assets/iconos/whatsapp.svg";
 
 const HeroSection = () => {
   const scrollToCollections = () => {
@@ -88,84 +90,117 @@ const HeroSection = () => {
 
             {/* CTAs */}
             <TextReveal delay={1.4}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col gap-4 justify-center lg:justify-start">
                 <MagneticButton
                   href="https://wa.me/+51921928668?text=Hola%20Steelo's!%20Quiero%20personalizar%20mi%20prenda%20❤️"
                   target="_blank"
-                  className="btn-passion inline-flex items-center gap-2 text-base md:text-lg px-7 py-4 shadow-[0_0_20px_rgba(255,0,0,0.2)] hover:shadow-[0_0_30px_rgba(255,0,0,0.4)]"
+                  className="btn-passion inline-flex items-center gap-3 text-base md:text-lg px-7 py-3 md:py-4 shadow-[0_0_20px_rgba(255,0,0,0.2)] hover:shadow-[0_0_30px_rgba(255,0,0,0.4)]"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 invert contrast-200" />
                   WhatsApp
                 </MagneticButton>
 
-                <MagneticButton
-                  onClick={scrollToCollections}
-                  className="btn-outline-passion inline-flex items-center gap-2 text-base md:text-lg px-7 py-4 bg-white/5 backdrop-blur-sm border-white/20 text-white hover:border-white hover:bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-all"
-                >
-                  <Sparkles className="w-5 h-5 text-accent" />
-                  Colecciones
-                </MagneticButton>
+                <div className="flex flex-row items-center justify-center lg:justify-start gap-3 md:gap-4">
+                  <MagneticButton
+                    onClick={scrollToCollections}
+                    className="flex-1 sm:flex-none btn-outline-passion inline-flex items-center justify-center gap-2 text-[11px] md:text-lg px-3.5 md:px-7 py-2.5 md:py-4 bg-white/5 backdrop-blur-sm border-white/20 text-white hover:border-white hover:bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-all"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 md:w-5 md:h-5 text-accent" />
+                    Colecciones
+                  </MagneticButton>
 
-                <MagneticButton
-                  onClick={scrollToBiker}
-                  className="btn-outline-passion inline-flex items-center gap-2 text-base md:text-lg px-7 py-4 bg-zinc-950/20 backdrop-blur-sm border-zinc-800 text-zinc-400 hover:border-primary hover:text-white transition-all order-last sm:order-none"
-                >
-                  <Zap className="w-5 h-5 text-yellow-500" />
-                  Estilo Biker
-                </MagneticButton>
+                  <MagneticButton
+                    onClick={scrollToBiker}
+                    className="flex-1 sm:flex-none btn-outline-passion inline-flex items-center justify-center gap-2 text-[11px] md:text-lg px-3.5 md:px-7 py-2.5 md:py-4 bg-zinc-950/20 backdrop-blur-sm border-zinc-800 text-zinc-400 hover:border-primary hover:text-white transition-all"
+                  >
+                    <Zap className="w-3.5 h-3.5 md:w-5 md:h-5 text-yellow-500" />
+                    Estilo Biker
+                  </MagneticButton>
+                </div>
               </div>
             </TextReveal>
           </div>
 
-          {/* Floating Product (Video visible on all devices now) */}
-          <div className="relative flex justify-center items-center mt-16 lg:mt-0">
-            <FloatingElement intensity={25} rotateIntensity={8}>
+          {/* Floating Products (Videos) */}
+          <div className="relative flex justify-center items-center mt-16 lg:mt-0 px-4">
+            <div className="relative flex flex-row items-center justify-center gap-4 md:gap-8 lg:gap-10">
+              {/* Woman Video Card */}
+              <FloatingElement intensity={20} rotateIntensity={6}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, x: -30 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="relative group pt-10 lg:pt-0"
+                >
+                  <div className="absolute -inset-6 bg-primary/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                  <div className="relative w-36 sm:w-48 md:w-64 lg:w-72 aspect-[10/14] overflow-hidden rounded-[2rem] shadow-2xl border border-white/10">
+                    <video
+                      src={poleraMujerVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover object-top scale-[1.08] origin-top group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                  </div>
+
+                  {/* Woman Badge */}
+                  <motion.div
+                    className="absolute -top-4 -left-4 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-tighter text-white z-10"
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    Damas
+                  </motion.div>
+                </motion.div>
+              </FloatingElement>
+
+              {/* Man Video Card */}
+              <FloatingElement intensity={25} rotateIntensity={8}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, x: 30 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                  className="relative group -mt-10 lg:mt-10"
+                >
+                  <div className="absolute -inset-6 bg-accent/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                  <div className="relative w-36 sm:w-48 md:w-64 lg:w-72 aspect-[10/14] overflow-hidden rounded-[2rem] shadow-2xl border border-white/10"
+                    style={{ boxShadow: "0 0 60px hsla(350, 100%, 50%, 0.15)" }}>
+                    <video
+                      src={poleraVaronVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover object-top scale-[1.08] origin-top group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                  </div>
+
+                  {/* Man Badge */}
+                  <motion.div
+                    className="absolute -bottom-4 -right-4 bg-primary/20 backdrop-blur-md border border-primary/30 px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-tighter text-primary z-10"
+                    animate={{ y: [0, 5, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  >
+                    Varones
+                  </motion.div>
+                </motion.div>
+              </FloatingElement>
+
+              {/* Central Floating Badges (Relative to the whole video group) */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="relative"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5 }}
+                className="absolute -top-12 left-1/2 -translate-x-1/2 glass-card-glow px-4 py-2 rounded-full whitespace-nowrap z-20 scale-90 md:scale-100"
               >
-                {/* Glow Effect */}
-                <div className="absolute -inset-8 bg-primary/20 rounded-full blur-3xl" />
-
-                <div
-                  className="relative w-64 md:w-80 aspect-[10/14] overflow-hidden rounded-3xl shadow-2xl"
-                  style={{
-                    boxShadow: "0 0 60px hsla(350, 100%, 50%, 0.3)",
-                  }}
-                >
-                  <video
-                    src={poleraVideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover object-top scale-[1.08] origin-top"
-                  />
-                </div>
-
-                {/* Price Badge */}
-                <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.5 }}
-                  className="absolute -right-2 md:-right-4 top-8 glass-card-glow px-3 py-1.5 md:px-4 md:py-2 rounded-full"
-                >
-                  <span className="text-xs md:text-sm font-bold text-gradient-gold">Desde S/89</span>
-                </motion.div>
-
-                {/* Love Badge */}
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.7 }}
-                  className="absolute -left-2 md:-left-4 bottom-12 glass-card-glow px-3 py-1.5 md:px-4 md:py-2 rounded-full"
-                >
-                  <span className="text-sm md:text-lg">❤️‍🔥 100% Algodón</span>
-                </motion.div>
+                <span className="text-xs md:text-sm font-bold text-gradient-gold">Dúos desde S/160</span>
               </motion.div>
-            </FloatingElement>
+            </div>
           </div>
         </div>
 
@@ -174,7 +209,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -183,12 +218,12 @@ const HeroSection = () => {
             onClick={scrollToCollections}
           >
             <div className="flex flex-col items-center gap-1 group-hover:scale-110 transition-transform duration-300">
-              <div className="px-6 py-2 rounded-full border-2 border-white shadow-[0_0_20px_rgba(255,255,255,0.8)] bg-white/10 backdrop-blur-sm mb-2">
-                <span className="text-base md:text-lg font-black text-white uppercase tracking-[0.2em] drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+              <div className="px-4 md:px-6 py-1 md:py-2 rounded-full border-2 border-white/50 md:border-white shadow-[0_0_15px_rgba(255,255,255,0.5)] md:shadow-[0_0_20px_rgba(255,255,255,0.8)] bg-white/10 backdrop-blur-sm mb-2">
+                <span className="text-[10px] md:text-lg font-black text-white uppercase tracking-[0.2em] drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
                   Descubre más
                 </span>
               </div>
-              <ChevronDown className="w-8 h-8 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+              <ChevronDown className="w-6 h-6 md:w-8 md:h-8 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
             </div>
           </motion.div>
         </motion.div>
