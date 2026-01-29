@@ -103,13 +103,13 @@ const BikerGallerySection = () => {
                 {/* Gallery Grid */}
                 <StaggerContainer
                     key={activeBrand}
-                    className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 auto-rows-[280px] md:auto-rows-[380px]"
+                    className="flex flex-wrap justify-center gap-4 md:gap-8"
                     staggerDelay={0.05}
                 >
                     {filteredItems.map((item) => (
                         <StaggerItem
                             key={item.id}
-                            className="group relative h-full"
+                            className="group relative w-[calc(50%-1rem)] lg:w-[calc(25%-2rem)] h-[280px] md:h-[380px]"
                         >
                             <motion.div
                                 className="h-full w-full rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 relative shadow-sm group-hover:shadow-xl transition-all duration-500 cursor-pointer"

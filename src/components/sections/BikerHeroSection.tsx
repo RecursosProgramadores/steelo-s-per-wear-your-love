@@ -107,10 +107,11 @@ const BikerHeroSection = () => {
 
                                 <div className="relative w-64 md:w-96 aspect-[10/14] bg-zinc-950/40 backdrop-blur-3xl rounded-[3rem] border border-white/5 shadow-2xl overflow-hidden group">
                                     <iframe
-                                        src="https://player.vimeo.com/video/1159700758?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=1&playsinline=1"
+                                        src="https://player.vimeo.com/video/1159700758?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1&playsinline=1"
                                         className="absolute inset-0 w-[130%] h-[130%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                                         frameBorder="0"
-                                        allow="autoplay; fullscreen; picture-in-picture"
+                                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                        referrerPolicy="strict-origin-when-cross-origin"
                                         title="biker"
                                     ></iframe>
                                 </div>

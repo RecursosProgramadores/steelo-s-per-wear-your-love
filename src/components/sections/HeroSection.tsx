@@ -131,13 +131,13 @@ const HeroSection = () => {
                   className="relative group pt-10 lg:pt-0"
                 >
                   <div className="absolute -inset-6 bg-primary/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-
                   <div className="relative w-40 sm:w-48 md:w-64 lg:w-72 aspect-[4/5] overflow-hidden rounded-[2rem] shadow-2xl border border-white/10 bg-zinc-900">
                     <iframe
-                      src="https://player.vimeo.com/video/1159700784?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=1&playsinline=1"
+                      src="https://player.vimeo.com/video/1159700784?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1&playsinline=1"
                       className="absolute inset-0 w-[200%] h-[200%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                       frameBorder="0"
-                      allow="autoplay; fullscreen; picture-in-picture"
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
                       title="pareja-mujer"
                     ></iframe>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
@@ -167,10 +167,11 @@ const HeroSection = () => {
                   <div className="relative w-32 sm:w-40 md:w-52 lg:w-60 aspect-[3/4.5] overflow-hidden rounded-[2rem] shadow-2xl border border-white/10 bg-zinc-900"
                     style={{ boxShadow: "0 0 60px hsla(350, 100%, 50%, 0.15)" }}>
                     <iframe
-                      src="https://player.vimeo.com/video/1159700736?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=1&playsinline=1"
+                      src="https://player.vimeo.com/video/1159700736?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1&playsinline=1"
                       className="absolute inset-0 w-[115%] h-[115%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                       frameBorder="0"
-                      allow="autoplay; fullscreen; picture-in-picture"
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
                       title="pareja-varon"
                     ></iframe>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
@@ -214,7 +215,7 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-    </section >
+    </section>
   );
 };
 
