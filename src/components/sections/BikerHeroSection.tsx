@@ -113,6 +113,7 @@ const BikerHeroSection = () => {
                                         loop
                                         muted
                                         playsInline
+                                        onEnded={(e) => e.currentTarget.play()}
                                         className="absolute inset-0 w-full h-full object-cover object-top scale-[1.08] origin-top transform group-hover:scale-[1.15] transition-transform duration-700"
                                     />
 

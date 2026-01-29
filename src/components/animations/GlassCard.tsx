@@ -6,6 +6,7 @@ interface GlassCardProps {
   className?: string;
   glowColor?: "red" | "pink" | "gold";
   hoverEffect?: boolean;
+  onClick?: () => void;
 }
 
 export const GlassCard = ({
@@ -13,6 +14,7 @@ export const GlassCard = ({
   className = "",
   glowColor = "red",
   hoverEffect = true,
+  onClick,
 }: GlassCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -25,16 +27,15 @@ export const GlassCard = ({
   return (
     <motion.div
       ref={ref}
-      whileHover={hoverEffect ? { 
-        scale: 1.02, 
-        y: -5,
-        boxShadow: `0 20px 40px ${glowColors[glowColor]}, 0 0 60px ${glowColors[glowColor]}`
+      whileHover={hoverEffect ? {
+        boxShadow: `0 0 40px ${glowColors[glowColor]}, 0 0 80px ${glowColors[glowColor].replace('0.3', '0.15')}`,
       } : {}}
-      transition={{ duration: 0.3 }}
-      className={`glass-card-glow ${className}`}
+      transition={{ duration: 0.2 }}
+      className={`glass-card-glow transition-colors duration-300 ${className}`}
       style={{
-        boxShadow: `0 0 20px ${glowColors[glowColor].replace('0.3', '0.1')}`
+        boxShadow: `0 0 20px ${glowColors[glowColor].replace('0.3', '0.05')}`
       }}
+      onClick={onClick}
     >
       {children}
     </motion.div>
