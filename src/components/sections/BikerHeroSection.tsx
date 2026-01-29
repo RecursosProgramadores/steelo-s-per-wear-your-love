@@ -8,7 +8,6 @@ import { AnimatedGradient } from "../animations/AnimatedGradient";
 import { TypewriterText } from "../animations/TypewriterText";
 
 import bikerBg from "@/assets/galeria/biker/biker1.png";
-import bikerVideo from "@/assets/biker.mp4";
 import whatsappIcon from "@/assets/iconos/whatsapp.svg";
 
 const BikerHeroSection = () => {
@@ -107,25 +106,23 @@ const BikerHeroSection = () => {
                                 <div className="absolute -inset-10 bg-primary/10 rounded-full blur-[100px]" />
 
                                 <div className="relative w-64 md:w-96 aspect-[10/14] bg-zinc-950/40 backdrop-blur-3xl rounded-[3rem] border border-white/5 shadow-2xl overflow-hidden group">
-                                    <video
-                                        src={bikerVideo}
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        onEnded={(e) => e.currentTarget.play()}
-                                        className="absolute inset-0 w-full h-full object-cover object-top scale-[1.08] origin-top transform group-hover:scale-[1.15] transition-transform duration-700"
-                                    />
-
-                                    {/* Floating Badges */}
-                                    <motion.div
-                                        className="absolute top-6 right-6 bg-yellow-500 text-black px-3 py-1 rounded-lg font-black text-[10px] uppercase tracking-tighter z-10"
-                                        animate={{ y: [0, -5, 0] }}
-                                        transition={{ duration: 3, repeat: Infinity }}
-                                    >
-                                        Resistente
-                                    </motion.div>
+                                    <iframe
+                                        src="https://player.vimeo.com/video/1159700758?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=1&playsinline=1"
+                                        className="absolute inset-0 w-[130%] h-[130%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                                        frameBorder="0"
+                                        allow="autoplay; fullscreen; picture-in-picture"
+                                        title="biker"
+                                    ></iframe>
                                 </div>
+
+                                {/* Floating Badges */}
+                                <motion.div
+                                    className="absolute top-6 right-6 bg-yellow-500 text-black px-3 py-1 rounded-lg font-black text-[10px] uppercase tracking-tighter z-10"
+                                    animate={{ y: [0, -5, 0] }}
+                                    transition={{ duration: 3, repeat: Infinity }}
+                                >
+                                    Resistente
+                                </motion.div>
                             </motion.div>
                         </FloatingElement>
                     </div>

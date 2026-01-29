@@ -8,8 +8,6 @@ import { AnimatedGradient } from "../animations/AnimatedGradient";
 import { TypewriterText } from "../animations/TypewriterText";
 
 import heroImage from "@/assets/hero-couple.jpg";
-import poleraMujerVideo from "@/assets/Polera_Flotando.mp4";
-import poleraVaronVideo from "@/assets/parejavaron.mp4";
 import whatsappIcon from "@/assets/iconos/whatsapp.svg";
 
 const HeroSection = () => {
@@ -123,7 +121,7 @@ const HeroSection = () => {
 
           {/* Floating Products (Videos) */}
           <div className="relative flex justify-center items-center mt-16 lg:mt-0 px-4">
-            <div className="relative flex flex-row items-center justify-center gap-4 md:gap-8 lg:gap-10">
+            <div className="relative flex flex-row items-center justify-center gap-2 md:gap-8 lg:gap-10">
               {/* Woman Video Card */}
               <FloatingElement intensity={20} rotateIntensity={6}>
                 <motion.div
@@ -134,17 +132,15 @@ const HeroSection = () => {
                 >
                   <div className="absolute -inset-6 bg-primary/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                  <div className="relative w-36 sm:w-48 md:w-64 lg:w-72 aspect-[10/14] overflow-hidden rounded-[2rem] shadow-2xl border border-white/10">
-                    <video
-                      src={poleraMujerVideo}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      onEnded={(e) => e.currentTarget.play()}
-                      className="absolute inset-0 w-full h-full object-cover object-top scale-[1.08] origin-top group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                  <div className="relative w-40 sm:w-48 md:w-64 lg:w-72 aspect-[4/5] overflow-hidden rounded-[2rem] shadow-2xl border border-white/10 bg-zinc-900">
+                    <iframe
+                      src="https://player.vimeo.com/video/1159700784?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=1&playsinline=1"
+                      className="absolute inset-0 w-[200%] h-[200%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      title="pareja-mujer"
+                    ></iframe>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
                   </div>
 
                   {/* Woman Badge */}
@@ -168,18 +164,16 @@ const HeroSection = () => {
                 >
                   <div className="absolute -inset-6 bg-accent/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                  <div className="relative w-36 sm:w-48 md:w-64 lg:w-72 aspect-[10/14] overflow-hidden rounded-[2rem] shadow-2xl border border-white/10"
+                  <div className="relative w-32 sm:w-40 md:w-52 lg:w-60 aspect-[3/4.5] overflow-hidden rounded-[2rem] shadow-2xl border border-white/10 bg-zinc-900"
                     style={{ boxShadow: "0 0 60px hsla(350, 100%, 50%, 0.15)" }}>
-                    <video
-                      src={poleraVaronVideo}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      onEnded={(e) => e.currentTarget.play()}
-                      className="absolute inset-0 w-full h-full object-cover object-top scale-[1.08] origin-top group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                    <iframe
+                      src="https://player.vimeo.com/video/1159700736?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=1&playsinline=1"
+                      className="absolute inset-0 w-[115%] h-[115%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      title="pareja-varon"
+                    ></iframe>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
                   </div>
 
                   {/* Man Badge */}
@@ -192,16 +186,6 @@ const HeroSection = () => {
                   </motion.div>
                 </motion.div>
               </FloatingElement>
-
-              {/* Central Floating Badges (Relative to the whole video group) */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5 }}
-                className="absolute -top-12 left-1/2 -translate-x-1/2 glass-card-glow px-4 py-2 rounded-full whitespace-nowrap z-20 scale-90 md:scale-100"
-              >
-                <span className="text-xs md:text-sm font-bold text-gradient-gold">Dúos desde S/160</span>
-              </motion.div>
             </div>
           </div>
         </div>
@@ -230,7 +214,7 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-    </section>
+    </section >
   );
 };
 
