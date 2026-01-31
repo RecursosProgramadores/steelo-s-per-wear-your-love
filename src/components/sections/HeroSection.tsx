@@ -49,7 +49,7 @@ const HeroSection = () => {
               >
                 <Sparkles className="w-4 h-4 text-accent" />
                 <span className="text-sm font-medium text-muted-foreground">
-                  Hecho con amor en Huánuco, Perú
+                  Trabajamos con RUC
                 </span>
               </motion.div>
             </TextReveal>
