@@ -11,13 +11,19 @@ import {
 } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "../animations/ScrollReveal";
 
-// Import biker images
-import biker1 from "@/assets/galeria/biker/biker1.png";
-import biker2 from "@/assets/galeria/biker/biker2.png";
-import biker3 from "@/assets/galeria/biker/biker3.png";
-import biker4 from "@/assets/galeria/biker/biker4.png";
+// Import biker images dynamically
+const bikerImages = import.meta.glob("@/assets/biker/**/*.png", { eager: true });
 
 const BRANDS = ["HONDA", "KTM", "KAWASAKI", "PULSAR", "DUCATI", "YAMAHA"];
+
+const BRAND_COLORS: Record<string, string> = {
+    "HONDA": "from-red-500/10 to-transparent",
+    "KTM": "from-orange-500/10 to-transparent",
+    "KAWASAKI": "from-green-500/10 to-transparent",
+    "PULSAR": "from-blue-500/10 to-transparent",
+    "DUCATI": "from-red-600/10 to-transparent",
+    "YAMAHA": "from-blue-600/10 to-transparent",
+};
 
 interface BikerItem {
     id: string;
@@ -27,21 +33,21 @@ interface BikerItem {
     color: string;
 }
 
-const bikerGalleryItems: BikerItem[] = [
-    // Distribution of available images across brands for initial population
-    { id: "h1", src: biker1, alt: "Diseño Honda Pro", brand: "HONDA", color: "from-red-500/10 to-transparent" },
-    { id: "h2", src: biker2, alt: "Honda Style 2", brand: "HONDA", color: "from-red-500/10 to-transparent" },
-    { id: "k1", src: biker3, alt: "KTM Performance", brand: "KTM", color: "from-orange-500/10 to-transparent" },
-    { id: "k2", src: biker4, alt: "KTM Biker 2", brand: "KTM", color: "from-orange-500/10 to-transparent" },
-    { id: "kw1", src: biker1, alt: "Kawasaki Ninja Style", brand: "KAWASAKI", color: "from-green-500/10 to-transparent" },
-    { id: "kw2", src: biker2, alt: "Kawasaki Team", brand: "KAWASAKI", color: "from-green-500/10 to-transparent" },
-    { id: "p1", src: biker3, alt: "Pulsar Power", brand: "PULSAR", color: "from-blue-500/10 to-transparent" },
-    { id: "p2", src: biker4, alt: "Pulsar Sport", brand: "PULSAR", color: "from-blue-500/10 to-transparent" },
-    { id: "d1", src: biker1, alt: "Ducati Italian Soul", brand: "DUCATI", color: "from-red-600/10 to-transparent" },
-    { id: "d2", src: biker2, alt: "Ducati Street", brand: "DUCATI", color: "from-red-600/10 to-transparent" },
-    { id: "y1", src: biker3, alt: "Yamaha Racing", brand: "YAMAHA", color: "from-blue-600/10 to-transparent" },
-    { id: "y2", src: biker4, alt: "Yamaha Ride", brand: "YAMAHA", color: "from-blue-600/10 to-transparent" },
-];
+// Generate gallery items from imported images
+const bikerGalleryItems: BikerItem[] = Object.entries(bikerImages).map(([path, module]: [string, any]) => {
+    // Extract brand from path (e.g., .../biker/DUCATI/ducati1.png -> DUCATI)
+    const pathParts = path.split('/');
+    const brandName = pathParts[pathParts.length - 2].toUpperCase();
+    const fileName = pathParts[pathParts.length - 1].split('.')[0];
+
+    return {
+        id: `${brandName}-${fileName}`,
+        src: module.default,
+        alt: `${brandName} Style ${fileName}`,
+        brand: brandName,
+        color: BRAND_COLORS[brandName] || "from-zinc-500/10 to-transparent"
+    };
+});
 
 const BikerGallerySection = () => {
     const [activeBrand, setActiveBrand] = useState(BRANDS[0]);
